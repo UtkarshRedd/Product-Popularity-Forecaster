@@ -1,0 +1,77 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs: 
+  - job: Build
+    displayName: Build
+    pool:
+      name: "agent140"
+    workspace:
+      clean: all
+    steps:
+    - script: |
+       docker login -u c2904d76-9dcb-4315-92ab-07610f612d7f -p Ft3l-_ci0YX2i~vOtOIGdAbH1X-iN0L.vX jioaicr.azurecr.io 
+   
+    - script: |
+       docker build -t search-platform/forecasting:latest -f ./Dockerfile --build-arg http_proxy=http://prodproxy.jio.com:8080 --build-arg https_proxy=http://prodproxy.jio.com:8080 --build-arg no_proxy=jioaicr.azurecr.io .
+      displayName: 'BuildDockerImage'
+    - script: |
+       docker tag search-platform/forecasting:latest jioaicr.azurecr.io/jioaicr/jioai-retail/search-platform/forecasting:latest
+    
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'jioaicr-connection'
+        repository: 'jioaicr/jioai-retail/search-platform/forecasting'
+        command: 'push'
+        tags: latest
+    
+    #################################
+
+    - script: |
+        echo "**********export kube config to cluster************"
+        
+        echo "*********Deploying to K8 Cluster*************"
+        
+        temp=$(Build.Repository.Name)
+        export reponame=$(echo "$temp" | awk '{print tolower($0)}')
+        
+        echo $reponame
+
+        #export path="s/\$\$IMAGE-URL/nexus.rjil.ril.com:5101\/sportsanalytics\/$(Build.Repository.Name):$(Build.BuildId)/"
+        export path="s/\$\$IMAGE-URL/jioaicr.azurecr.io\/jioaicr\/jioai-retail\/search-platform\/forecasting:latest/"
+              
+        sed -e "$path"  $(Build.SourcesDirectory)/$(Build.Repository.Name).yaml > $(Build.SourcesDirectory)/$(Build.Repository.Name)-azure.yaml
+      
+        
+        ls -lrtc
+        cat $(Build.Repository.Name)-azure.yaml
+      
+      displayName: ChangeTheTokens
+
+#################################
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: '$(Build.Repository.Name)-azure.yaml'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/DeploymentYaml'
+
+      displayName: 'Copy K8S Artefacts to staging directory'
+  
+#################################
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: '$(Build.Repository.Name)-latest'
+      displayName: 'Publish Artefacts'
+
+#################################

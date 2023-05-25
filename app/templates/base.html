@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <style>
+        .message {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3
+        }
+        nav a {
+            color: #d64161;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        a:link, a:visited {
+          background-color: grey;
+          color: black;
+          font-size:30px;
+          border: 2px solid blue;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        a:hover, a:active {
+          background-color: green;
+          color: white;
+        }
+        body {
+  background-color: powderblue;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Popularity App</a>
+        <a href="{{ url_for('get_top_categories') }}">Get Popular Categories</a>
+        <a href="{{ url_for('get_top_products') }}">Get Popular Products</a>
+        <a href="{{ url_for('get_top_categories_and_products') }}">Get Popular Categories and Products</a>
+        <a href="{{ url_for('get_global_product_popularity') }}">Get Global Product Popularity</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

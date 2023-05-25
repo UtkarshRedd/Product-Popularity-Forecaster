@@ -1,0 +1,6 @@
+city,error_msg
+ADONI,"All lag values up to 'maxlag' produced singular matrices. Consider using a longer series, a different lag term or a different test."
+BHILWARA,"All lag values up to 'maxlag' produced singular matrices. Consider using a longer series, a different lag term or a different test."
+BODHAN,"All lag values up to 'maxlag' produced singular matrices. Consider using a longer series, a different lag term or a different test."
+BURDWAN,"All lag values up to 'maxlag' produced singular matrices. Consider using a longer series, a different lag term or a different test."
+CHOMU,"All lag values up to 'maxlag' produced singular matrices. Consider using a longer series, a different lag term or a different test."

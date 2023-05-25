@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tr:hover {background-color: coral;}
+   </style>
+<!--   <h2>-->
+<!--      Top 10 Products for {{city_name}} and {{l3_category}} are.-->
+<!--   </h2>-->
+   <table>
+      <tr>
+         <th>City</th>
+         <th>Category</th>
+         <th>Product</th>
+          <th>Popularity Score</th>
+
+
+      </tr>
+
+      {% for product,popularity in messages.items()%}
+      <tr>
+          <td>{{city_name}}</td>
+          <td>{{l3_category}}</td>
+          <td>{{product}}</td>
+          <td>{{popularity}}</td>
+
+      </tr>
+      {% endfor %}
+   </table>
+
+{% endblock %}
+

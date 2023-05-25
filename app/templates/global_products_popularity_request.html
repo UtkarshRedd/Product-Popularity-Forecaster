@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+   <h1> Get Global Products Popularity</h1>
+   <form action="{{url_for('display_global_product_popularity')}}" >
+
+      <label for="Product SKU Id">product_sku_id</label>
+      <input type="text" name="product_sku_id">
+
+      <input type="submit" value="submit form">
+   </form>
+</div>
+{% endblock %}

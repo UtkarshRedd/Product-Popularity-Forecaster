@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+   <h1> Get Popular Products</h1>
+   <form action="{{url_for('display_top_products')}}" >
+      <label for="city_name">city_name</label>
+      <input type="text" name="city_name">
+      <label for="l3_category">l3_category</label>
+      <input type="text" name="l3_category">
+      <ul>
+         <input type="radio" name="get bottom products" value="Yes"><span>Get Bottom Products</span><br/>
+         <input type="radio" name="get bottom products" value="No"><span>Get Top Products</span>
+      </ul>
+      <input type="submit" value="submit form">
+   </form>
+</div>
+{% endblock %}

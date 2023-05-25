@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+   <h1> Get Popular Categories</h1>
+   <form action="{{url_for('display_top_categories')}}" >
+      <label for="city_name">city_name</label>
+      <input type="text" name="city_name">
+      <ul>
+         <input type="radio" name="get bottom categories" value="Yes"><span>Get Bottom Categories</span><br/>
+         <input type="radio" name="get bottom categories" value="No"><span>Get Top Categories</span>
+      </ul>
+
+      <input type="submit" value="submit form">
+   </form>
+</div>
+{% endblock %}

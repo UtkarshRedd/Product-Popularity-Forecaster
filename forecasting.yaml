@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: forecasting
+  name: forecasting
+  namespace: retail-dev
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forecasting
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: forecasting
+    spec:
+      containers:
+      - image: $$IMAGE-URL
+        #command: ["java"]
+        #args: ["-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=#{ENV}#", "-jar", "/app/jars/wcp_profile_v1_0.jar"]
+        #imagePullPolicy: IfNotPresent
+        name: forecasting
+        ports:
+        - containerPort: 5000
+        #volumeMounts:
+         # - mountPath: /jiogst/asp/userdata/useragreementpdf/
+          #  name: jiogstam
+      imagePullSecrets:
+       - name: registrysecret
+      #volumes:
+       # - name: jiogstam
+        #  persistentVolumeClaim:
+         #   claimName: jiogst-am
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: forecasting
+  namespace: retail-dev
+  labels:
+    app: forecasting
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+    name: http
+    protocol: TCP
+    nodePort: 32007
+  selector:
+    app: forecasting
+  type: NodePort

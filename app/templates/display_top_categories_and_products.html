@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        margin:5px
+      }
+
+      tr:hover {background-color: coral;}
+   </style>
+   <h2>
+      Top 10 categories for {{city_name}} and top popular products in each category are.
+   </h2>
+   {% for category,prod_maps in messages.items()%}
+<!--   <p>{{category}}</p>-->
+      <table>
+         <tr>
+            <th>City</th>
+            <th>Category</th>
+            <th>Product</th>
+             <th>Popularity Score</th>
+
+         </tr>
+
+
+            {% for sku,value in prod_maps.items() %}
+               <tr>
+                   <td>{{city_name}}</td>
+                   <td>{{category}}</td>
+                   <td>{{sku}}</td>
+                   <td>{{value}}</td>
+
+               </tr>
+            {% endfor %}
+         <br>
+      {% endfor %}
+      </table>
+
+{% endblock %}
+
