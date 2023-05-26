@@ -3,12 +3,11 @@ This web-app was designed to calculate popularities of products from a particula
 
 A short demo of the app is given below: -
 
+https://github.com/UtkarshRedd/Product-Popularity-Forecaster/assets/29978378/a7b0fb16-b441-4bbe-a946-b016f5862179
 
 
 Dependencies: -
 - [Python](https://www.python.org/) (3.8 or later recommended)
-.. image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue.svg
-    :target: https://www.python.org/downloads/
 - [Flask](https://flask.palletsprojects.com/en/2.1.x/) (2.0.3)
 - [Flask-Cors](https://flask-cors.readthedocs.io/en/latest/) (3.0.10)
 - [Jinja2](https://jinja.palletsprojects.com/) (3.0.3)
