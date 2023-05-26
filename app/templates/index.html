@@ -1,27 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="jumbotron">
+<div class="container-fluid p-5" style="background-color: #F5F5F5;">
+    <h1 class="display-4 mb-4">Welcome to Popularity App!</h1>
+    <p class="lead">Uncover the popularity of various products and categories based on real-time sales data.</p>
+    <hr class="my-4">
 
+    <div class="d-flex justify-content-between flex-wrap mb-5">
+        <a href="{{ url_for('get_top_categories') }}" class="btn btn-outline-primary btn-lg m-2" role="button"><i class="fas fa-tags"></i> Get Popular Categories</a>
+        <a href="{{ url_for('get_top_products') }}" class="btn btn-outline-warning btn-lg m-2" role="button"><i class="fas fa-boxes"></i> Get Popular Products</a>
+        <a href="{{ url_for('get_top_categories_and_products') }}" class="btn btn-outline-success btn-lg m-2" role="button"><i class="fas fa-star"></i> Get Popular Categories and Products</a>
+        <a href="{{ url_for('get_global_product_popularity') }}" class="btn btn-outline-danger btn-lg m-2" role="button"><i class="fas fa-globe"></i> Get Global Product Popularity</a>
+    </div>
 
-    <h1>Welcome to Popularity App!</h1>
-    <h3>Here you can find popularity across products and categories based on geographical location</h3>
-    <div>
-        <li>
-            <b>Get Popular Categories </b>- Provides top popular categories for a given city
-        </li>
-        <li>
-            <b>Get Popular Products</b> - Provides top popular products for a given city and category
-        </li>
-        <li>
-            <b>Get Popular Categories and Products</b> - Provides top popular categories and the products within them for a given city
-        </li>
-        <li>
-            <b>Get Global Product Popularity</b> - Provides global popularity for the given product sku ids.
-        </li>
+    <div class="card-deck">
+        <div class="card border-light">
+            <div class="card-body">
+                <h5 class="card-title text-primary"><i class="fas fa-tags"></i> Get Popular Categories</h5>
+                <p class="card-text">Discover the top popular categories in a given city.</p>
+            </div>
+        </div>
+        <div class="card border-light">
+            <div class="card-body">
+                <h5 class="card-title text-warning"><i class="fas fa-boxes"></i> Get Popular Products</h5>
+                <p class="card-text">Reveal the top popular products for a specific city and category.</p>
+            </div>
+        </div>
+        <div class="card border-light">
+            <div class="card-body">
+                <h5 class="card-title text-success"><i class="fas fa-star"></i> Get Popular Categories and Products</h5>
+                <p class="card-text">Identify the top popular categories and the products within them for a certain city.</p>
+            </div>
+        </div>
+        <div class="card border-light">
+            <div class="card-body">
+                <h5 class="card-title text-danger"><i class="fas fa-globe"></i> Get Global Product Popularity</h5>
+                <p class="card-text">Obtain global popularity statistics for given product SKUs.</p>
+            </div>
+        </div>
     </div>
 
 </div>
-
-
 {% endblock %}

@@ -1,54 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Add Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Add your custom CSS below this -->
     <style>
-        .message {
-            padding: 10px;
-            margin: 5px;
-            background-color: #f3f3f3
+        body {
+            background-color: #F5F5F5;
         }
         nav a {
-            color: #d64161;
-            font-size: 3em;
             margin-left: 50px;
             text-decoration: none;
         }
-
-        a:link, a:visited {
-          background-color: grey;
-          color: black;
-          font-size:30px;
-          border: 2px solid blue;
-          padding: 10px 20px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-        }
-
-        a:hover, a:active {
-          background-color: green;
-          color: white;
-        }
-        body {
-  background-color: powderblue;
-}
-
     </style>
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">Popularity App</a>
-        <a href="{{ url_for('get_top_categories') }}">Get Popular Categories</a>
-        <a href="{{ url_for('get_top_products') }}">Get Popular Products</a>
-        <a href="{{ url_for('get_top_categories_and_products') }}">Get Popular Categories and Products</a>
-        <a href="{{ url_for('get_global_product_popularity') }}">Get Global Product Popularity</a>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Popularity App</a>
+        <a href="{{ url_for('get_top_categories') }}" class="btn btn-secondary">Get Popular Categories</a>
+        <a href="{{ url_for('get_top_products') }}" class="btn btn-secondary">Get Popular Products</a>
+        <a href="{{ url_for('get_top_categories_and_products') }}" class="btn btn-secondary">Get Popular Categories and Products</a>
+        <a href="{{ url_for('get_global_product_popularity') }}" class="btn btn-secondary">Get Global Product Popularity</a>
     </nav>
     <hr>
-    <div class="content">
-        {% block content %} {% endblock %}
+    <div class="container">
+        {% block content %}{% endblock %}
     </div>
+    <!-- Add Bootstrap JS at the end -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
