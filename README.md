@@ -39,5 +39,5 @@ Built With
 - config.py contains all the relevant configurable variables. 
 
 # Execution with Docker
-1. Build the docker file by running the command - "docker build -t `Docker Image Name` ."
-2. Run the docker file on port 5002 by running the command - "docker run -p 5002:5002 `Docker Image Name`"
+1. Build the docker file by running the command - `docker build -t <docker_image_name> .`
+2. Run the docker file on port 5002 by running the command - `docker run -p 5002:5002 <docker_image_name>`
