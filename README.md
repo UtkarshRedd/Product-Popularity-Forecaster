@@ -1,5 +1,5 @@
 # Introduction 
-This web-app was designed to calculate popularities of products from a particular catalog containing grocery products sold on an e-retail app. Sales revenue and quantity data of every product and category were aggreagated and used to calculate the popularity of the product. A seasonal ARIMAX model was then trained to forecast the sales revenue and quantity data for the next 7 days. This was done for products being sold in every major city to provide city-wise and city-wise-category-wise product popularities.  
+This web-app was designed to calculate popularities of products from a particular catalog containing grocery products sold on an e-retail app. Sales revenue and quantity data of every product and category were aggreagated and used to calculate the popularity of the product. For a specific date, a seasonal ARIMAX model was then trained to forecast the sales revenue and quantity data for the next 7 days. This was done for products being sold in every major city to provide city-wise and city-wise-category-wise product popularities.  
 
 A short demo of the app is given below: -
 
