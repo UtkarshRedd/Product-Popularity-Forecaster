@@ -3,7 +3,7 @@ This web-app was designed to calculate popularities of products from a particula
 
 A short demo of the app is given below: -
 
-https://github.com/UtkarshRedd/Product-Popularity-Forecaster/assets/29978378/a7b0fb16-b441-4bbe-a946-b016f5862179
+https://github.com/UtkarshRedd/Product-Popularity-Forecaster/assets/29978378/c92735ac-6222-488b-a4e2-cf82509141ed
 
 
 Dependencies: -
