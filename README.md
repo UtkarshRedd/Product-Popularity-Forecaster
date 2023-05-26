@@ -6,7 +6,7 @@ A short demo of the app is given below: -
 https://github.com/UtkarshRedd/Product-Popularity-Forecaster/assets/29978378/529e1144-2979-4464-a9be-81948a7d0156
 
 
-Dependencies: -
+# Dependencies: -
 - [Python](https://www.python.org/) (3.8 or later recommended)
 - [Flask](https://flask.palletsprojects.com/en/2.1.x/) (2.0.3)
 - [Flask-Cors](https://flask-cors.readthedocs.io/en/latest/) (3.0.10)
@@ -34,12 +34,10 @@ Built With
 - Jinja2 - Template engine for Python
 - pmdarima - Time Series Forecasting
 
-Data is present in the datasets folder.
+- Dataset is present in the datasets folder.
+- All machine learning utilities are present in the models folder. Trained models for each city is present in pickle files in the models.sarimax.trained_models folder. 
+- config.py contains all the relevant configurable variables. 
 
-All machine learning utilities are present in the models folder. Trained models for each city is present in pickle files in the models.sarimax.trained_models folder. 
-
-config.py contains all the relevant configurable variables. 
-
-# Docker
-1. Build the docker file by running the command - docker build -t <name> .
-2. Run the docker file on port 5002 by running the command - docker run -p 5002:5002 <name>
+# Execution with Docker
+1. Build the docker file by running the command - "docker build -t `Docker Image Name` ."
+2. Run the docker file on port 5002 by running the command - "docker run -p 5002:5002 `Docker Image Name`"
