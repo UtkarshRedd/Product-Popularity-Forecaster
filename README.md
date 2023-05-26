@@ -29,10 +29,10 @@ Dependencies: -
 
 
 Built With
-Python - The programming language used
-Flask - The web framework used
-Jinja2 - Template engine for Python
-pmdarima - Time Series Forecasting
+- Python - The programming language used
+- Flask - The web framework used
+- Jinja2 - Template engine for Python
+- pmdarima - Time Series Forecasting
 
 Data is present in the datasets folder.
 
