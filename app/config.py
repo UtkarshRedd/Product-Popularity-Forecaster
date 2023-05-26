@@ -1,8 +1,6 @@
 import os
-
-import pathlib
+from pathlib import Path
 #import app
-# from app.data.config import l1_col,l2_col,l3_col
 
 IS_CUSTOM_ENV = True
 IS_PROD_ENV = False
@@ -53,7 +51,8 @@ DAY_NAME_LIST = ['Monday', 'Thursday']
 
 # PACKAGE_ROOT = pathlib.Path(app.__file__).resolve().parent
 # PROJECT_ROOT = PACKAGE_ROOT.parent
-PROJECT_ROOT = get_project_root()
+ROOT_DIR = Path(os.getcwd())
+PROJECT_ROOT = ROOT_DIR.parent
 PACKAGE_ROOT = PROJECT_ROOT
 #print(PROJECT_ROOT)
 # directory names

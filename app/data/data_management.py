@@ -4,7 +4,7 @@ import os
 import json
 import pickle
 import sys
-import forecasting.app.data.config as cfg
+import app.config as cfg
 
 
 def save_dict_as_json(dic, file_name=None, file_dir=None):

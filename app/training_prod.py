@@ -1,7 +1,7 @@
 import os
 import sys
-print(sys.path)
-import forecasting.app.config as cfg
+
+import config as cfg
 from models.sarimax.training import train as train_sarimax
 from logger import APP_LOGGER
 import warnings

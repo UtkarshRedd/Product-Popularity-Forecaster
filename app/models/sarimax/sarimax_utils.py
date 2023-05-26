@@ -3,12 +3,12 @@ import datetime as dt
 import pandas as pd
 import numpy as np
 import sys
-sys.path.append(os.path.abspath(os.path.join('..', '..', '..', 'app', 'data')))
-import forecasting.app.config as cfg
+sys.path.append(os.path.abspath(os.path.join('..', '..', '..')))
+import app.config as cfg
 from pmdarima import auto_arima
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-from forecasting.app.data.data_management import create_directory, save_dict_as_pickle, load_dict_from_pickle
-from forecasting.app.data.data_utils import DATA_LOADER, get_level_wise_contribution
+from app.data.data_management import create_directory, save_dict_as_pickle, load_dict_from_pickle
+from app.data.data_utils import DATA_LOADER, get_level_wise_contribution
 
 print(sys.path)
 
@@ -521,17 +521,17 @@ def sarimax_prediction_configs(model_type=None):
 ## must be run after every model training
 
 from pathlib import Path
-def get_project_root() -> Path:
-   return Path(__file__).parent.parent.parent
+# def get_project_root() -> Path:
+#    return Path(__file__).parent.parent.parent
 
-print(get_project_root())
 def save_city_l3_contribution_files():
-    PROJECT_ROOT = get_project_root()
-    PACKAGE_ROOT = PROJECT_ROOT
-    #DATASET_DIR = f'{PROJECT_ROOT}/datasets'
 
-    DATASET_DIR = '/Users/utkarsh.lal/Desktop/forecasting_azure/forecasting/datasets/'
+    ROOT_DIR = Path(os.getcwd())
+    ROOT_DIR = str(ROOT_DIR)
+    ROOT_DIR = ROOT_DIR.replace('\\', "/")
     RAW_DATA_FILE_NAME = 'cleaned_data_2020-10-01_2021-10-18.parquet'
+    data = pd.read_parquet(f"{ROOT_DIR}/datasets/cleaned_data_2020-10-01_2021-10-18.parquet")
+
     TARGET_COLS = {'revenue': 'Net_Sales', 'quantity': 'Net_Quantity'}
     L1_COL = 'L1'
     L2_COL = 'L2'
@@ -541,11 +541,11 @@ def save_city_l3_contribution_files():
     CITY_COL = 'FC City'
     DATE_COL = 'Date'
     # CONTRIBUTION_DIR = 'contributions/'
-    CONTRIBUTION_DIR = f'{PACKAGE_ROOT}/contributions'
-
+    CONTRIBUTION_DIR = f"{ROOT_DIR}/contributions/"
+    
     CONTRIBUTION_FILE_NAMES_MAP = {L3_COL: 'l3_contributions', L2_COL: 'l2_contributions', L1_COL: 'l1_contributions'}
 
-    data = DATA_LOADER.load_data(file_path=DATASET_DIR, file_name=RAW_DATA_FILE_NAME)
+    #data = pd.read_parquet(f"{ROOT_DIR}/datasets/cleaned_data_2020-10-01_2021-10-18.parquet")
 
     for key, value in TARGET_COLS.items():
         city_l3_article_contribution_map = get_level_wise_contribution(data, threshold_min_date=THRESHOLD_MIN_DATE,

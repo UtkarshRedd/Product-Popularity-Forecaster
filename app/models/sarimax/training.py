@@ -1,7 +1,5 @@
 import sys
-sys.path.append('/Users/utkarsh.lal/Desktop/forecasting_azure/forecasting/app/')
-print(sys.path)
-from forecasting.app.models.sarimax.sarimax_utils import (create_day_name_col,
+from app.models.sarimax.sarimax_utils import (create_day_name_col,
                                               check_for_particular_day,
                                               train_city_l3_wise_sarimax_and_save)
 

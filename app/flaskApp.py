@@ -3,7 +3,9 @@ from models.sarimax.sarimax_utils import (generate_city_wise_top_categories,
                                               generate_city_wise_top_categories_and_products,
                                               generateProductPopularity
                                               )
-
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join('..')))
 from flask import Flask, render_template, request, url_for
 import config as cfg
 

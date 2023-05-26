@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
-import forecasting.app.data.config as cfg
+import app.data.config as cfg
 
 
 class DataLoader:

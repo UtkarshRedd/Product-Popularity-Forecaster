@@ -1,6 +1,6 @@
 import logging
 import os
-from forecasting.app.config import LOG_DIR
+from app.config import LOG_DIR
 
 
 class AppLogger:

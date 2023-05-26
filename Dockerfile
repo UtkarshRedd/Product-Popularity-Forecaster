@@ -17,5 +17,6 @@ COPY app/flaskApp.py .
 COPY app/data .
 COPY app/templates /app/templates
 COPY ./datasets /app/datasets
+COPY app/contributions .
 
 CMD [ "python3", "flaskApp.py" ]
