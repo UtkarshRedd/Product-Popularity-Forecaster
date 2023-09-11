@@ -1,5 +1,5 @@
-# Introduction 
-This web-app was designed to calculate popularities of products from a particular catalog containing grocery products sold on an e-retail app. Sales revenue and quantity data of every product and category were aggreagated and used to calculate the popularity of the product. For a specific date, a seasonal ARIMAX model was then trained to forecast the sales revenue and quantity data for the next 7 days. This was done for products being sold in every major city to provide city-wise and city-wise-category-wise product popularities.  
+# Product Popularity Forecaster 
+This web app was designed to calculate the popularity of products from a particular catalog containing grocery products sold on an e-retail app. Sales revenue and quantity data of every product and category were aggregated and used to calculate the product's popularity. For a specific date, a seasonal ARIMAX model was then trained to forecast the sales revenue and quantity data for the next seven days. This was done for products sold in every major city to provide city-wise and city-wise-category-wise product popularities. The forecasted popularity score was calculated by taking the weighted average of forecasted revenue and quantity data.
 
 A short demo of the app is given below: -
 
@@ -26,3 +26,9 @@ https://github.com/UtkarshRedd/Product-Popularity-Forecaster/assets/29978378/529
 - [pyarrow](https://arrow.apache.org/docs/python/)
 - [fastparquet](https://fastparquet.readthedocs.io/en/latest/)
 - [pathlib](https://docs.python.org/3/library/pathlib.html)
+
+# Relevant Folders
+app.templates contains the code for front-end
+app.saved_popularity contains trained models for forecasting quantity and revenue data in pickle files
+app.models contains all code for the sarimax model including training daily models, walk-forward validation, Holt-Winters exponential smoothing, and exception handling. Trained models for each location have been stored in app.models.sarimax.trained_models for quantity and revenue in pickle files.
+
