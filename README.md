@@ -28,7 +28,7 @@ https://github.com/UtkarshRedd/Product-Popularity-Forecaster/assets/29978378/529
 - [pathlib](https://docs.python.org/3/library/pathlib.html)
 
 # Relevant Folders
-app.templates contains the code for front-end
-app.saved_popularity contains trained models for forecasting quantity and revenue data in pickle files
-app.models contains all code for the sarimax model including training daily models, walk-forward validation, Holt-Winters exponential smoothing, and exception handling. Trained models for each location have been stored in app.models.sarimax.trained_models for quantity and revenue in pickle files.
+1. app.templates contains the code for front-end
+2. app.saved_popularity contains trained models for forecasting quantity and revenue data in pickle files
+3. app.models contains all code for the sarimax model including training daily models, walk-forward validation, Holt-Winters exponential smoothing, and exception handling. Trained models for each location have been stored in app.models.sarimax.trained_models for quantity and revenue in pickle files.
 
